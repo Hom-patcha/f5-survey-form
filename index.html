@@ -185,7 +185,9 @@
     }
 
     .scale-options input {
-      display: none;
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
     }
 
     .scale-options span {
@@ -500,8 +502,9 @@
     const submitBtn = document.getElementById("submitBtn");
     const thankYou = document.getElementById("thankYou");
 
-    form.addEventListener("submit", function () {
+    form.addEventListener("submit", function (event) {
       if (!form.checkValidity()) {
+        event.preventDefault();
         form.reportValidity();
         return;
       }
@@ -521,6 +524,6 @@
       submitBtn.disabled = false;
       submitBtn.textContent = "Submit Feedback";
     }
-  </script>
+</script>
 </body>
 </html>
